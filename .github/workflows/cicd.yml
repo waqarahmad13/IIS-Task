@@ -28,12 +28,9 @@ jobs:
 
       - name: Run tests
         run: dotnet test --no-restore --verbosity normal
-  
+
       - name: Publish the application
         run: dotnet publish --configuration Release --output ./publish
-
-      - name: List published files (debugging)
-        run: ls -R ./publish
 
       - name: Upload publish artifacts
         uses: actions/upload-artifact@v3
@@ -42,8 +39,8 @@ jobs:
           path: ./publish
 
   deploy:
-    runs-on: windows-latest
-    needs: build  # Ensure the build job completes first
+    runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - name: Download publish artifacts
@@ -52,16 +49,14 @@ jobs:
           name: publish
           path: ./publish
 
-      - name: List downloaded files (debugging)
-        run: ls -R ./publish
+      - name: Install expect
+        run: sudo apt-get install expect
 
-      - name: IIS Deploy
-        uses: ChristopheLav/iis-deploy@v1.0.0
-        with:
-          website-name: hello-app
-          msdeploy-service-url: https://57.154.178.209:8172/msdeploy.axd
-          msdeploy-username: win-admin
-          msdeploy-password: PWf%vrvrQwsn@1234
-          source-path: ./publish
-          additional-arguments: '-whatif'  # Simulate the deployment for debugging
-          verbosity: Detailed
+      - name: SCP files to IIS server
+        run: |
+          #!/usr/bin/expect
+          set timeout -1
+          spawn scp -r ./publish/* win-admin@<server-ip>:/C:/inetpub/wwwroot/your-site
+          expect "password:"
+          send "${{ secrets.IIS_DEPLOY_PASSWORD }}\r"
+          expect eof
