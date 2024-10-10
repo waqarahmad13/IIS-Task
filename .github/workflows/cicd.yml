@@ -29,7 +29,15 @@ jobs:
       - name: Run tests
         run: dotnet test --no-restore --verbosity normal
   
-  
+      - name: Publish the application
+        run: dotnet publish --configuration Release --output ./publish
+
+      - name: Upload publish artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: publish
+          path: ./publish
+
   deploy:
     runs-on: windows-latest
     needs: build  # Ensure the build job completes first
@@ -45,6 +53,7 @@ jobs:
         run: |
           Invoke-WebRequest -Uri "https://download.microsoft.com/download/6/D/1/6D1B99FF-5694-4A39-83B7-0B3C74B8400E/WebDeploy_amd64_en.exe" -OutFile "WebDeploy_amd64_en.exe"
           Start-Process -FilePath "WebDeploy_amd64_en.exe" -ArgumentList "/quiet" -NoNewWindow -Wait
+          
       - name: IIS Deploy
         uses: ChristopheLav/iis-deploy@v1.0.0
         with:
