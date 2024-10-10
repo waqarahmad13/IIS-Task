@@ -59,10 +59,10 @@ jobs:
           # IIS website name
           website-name: hello-app
           # MS Deploy Service URL
-          msdeploy-service-url: https://IIS-Server:8172/msdeploy.axd  # e.g., `https://your-server:8172/msdeploy.axd`
+          msdeploy-service-url: https://57.154.178.209:8172/msdeploy.axd  # e.g., `https://your-server:8172/msdeploy.axd`
           # Username for Basic authentication to the MS Deploy Service
-          msdeploy-username: admin-user
+          msdeploy-username: win-admin
           # Password for Basic authentication to the MS Deploy Service
-          msdeploy-password: Pakistan@1234
+          msdeploy-password: PWf%vrvrQwsn@1234
           # The path to the source directory that will be deployed
           source-path: ./publish
