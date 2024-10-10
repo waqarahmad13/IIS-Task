@@ -56,7 +56,7 @@ jobs:
         run: |
           #!/usr/bin/expect
           set timeout -1
-          spawn scp -r ./publish/* win-admin@<server-ip>:/C:/inetpub/wwwroot/your-site
+          spawn scp -r ./publish/* win-admin@57.154.178.209:C:\IIS-Task-main
           expect "password:"
-          send "${{ secrets.IIS_DEPLOY_PASSWORD }}\r"
+          send "PWf%vrvrQwsn@1234\r"
           expect eof
