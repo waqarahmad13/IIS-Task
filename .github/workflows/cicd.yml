@@ -51,7 +51,7 @@ jobs:
 
       - name: Copy Files to Target Path
         run: |
-          Copy-Item -Path ./publish/* -Destination C:\IIS-Task -Recurse -Force
+          Copy-Item -Path ./publish/* -Destination C:\IIS-Task-main -Recurse -Force
 
       - name: IIS Deploy
         uses: ChristopheLav/iis-deploy@v1.0.0
