@@ -60,7 +60,7 @@ jobs:
         with:
           website-name: hello-app
           msdeploy-service-url: https://57.154.178.209:8172/msdeploy.axd
-          msdeploy-username: ${{ secrets.MSDEPLOY_USERNAME }}
+          msdeploy-username: win-admin
           msdeploy-password: ${{ secrets.MSDEPLOY_PASSWORD }}
           source-path: ./publish
           additional-arguments: '-whatif'  # Simulate the deployment for debugging
