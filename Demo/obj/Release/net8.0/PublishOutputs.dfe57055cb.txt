@@ -1,0 +1,11 @@
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Demo.exe
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Demo.dll
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Demo.deps.json
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Demo.runtimeconfig.json
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Demo.pdb
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\arsl\Downloads\Demo\Demo\Demo\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
