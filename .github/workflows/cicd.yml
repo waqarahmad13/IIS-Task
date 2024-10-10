@@ -57,7 +57,7 @@ jobs:
         uses: ChristopheLav/iis-deploy@v1.0.0
         with:
           # IIS website name
-          website-name: app-hello
+          website-name: hello-app
           # MS Deploy Service URL
           msdeploy-service-url: https://IIS-Server:8172/msdeploy.axd  # e.g., `https://your-server:8172/msdeploy.axd`
           # Username for Basic authentication to the MS Deploy Service
