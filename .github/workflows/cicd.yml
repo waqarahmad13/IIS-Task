@@ -49,14 +49,9 @@ jobs:
           name: publish
           path: ./publish
 
-      - name: Install expect
-        run: sudo apt-get install expect
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
 
       - name: SCP files to IIS server
         run: |
-          #!/usr/bin/expect
-          set timeout -1
-          spawn scp -r ./publish/* win-admin@57.154.178.209:C:\IIS-Task-main
-          expect "password:"
-          send "PWf%vrvrQwsn@1234\r"
-          expect eof
+          sshpass -p 'PWf%vrvrQwsn@1234' scp -o StrictHostKeyChecking=no -r ./publish/* win-admin@57.154.178.209:C:/IIS-Task-main
