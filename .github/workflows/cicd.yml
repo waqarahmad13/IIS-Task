@@ -63,5 +63,5 @@ jobs:
           msdeploy-username: win-admin
           msdeploy-password: PWf%vrvrQwsn@1234
           source-path: ./publish
-          additional-arguments: '-whatif'  # Simulate the deployment for debugging
-          verbosity: Detailed
+          #additional-arguments: '-whatif'  # Simulate the deployment for debugging
+          additional-arguments: '-verb:sync -allowUntrusted -verbose'
