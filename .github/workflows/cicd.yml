@@ -52,7 +52,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          server: 'ftp://57.154.178.209'  # Your FTP server address
+          server: '57.154.178.209'  # Your FTP server address
           username: 'win-admin'             # Your FTP username
           password: 'PWf%vrvrQwsn@1234'     # Your FTP password
           local-dir: './publish/'            # Local directory to upload
