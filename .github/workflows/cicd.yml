@@ -63,3 +63,4 @@ jobs:
           msdeploy-password: Pakistan@1234
           # The path to the source directory that will be deployed
           source-path: ./publish
+          target-path: C:\IIS-Task  # Specify the target path for deployment
