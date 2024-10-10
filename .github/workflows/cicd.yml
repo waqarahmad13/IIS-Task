@@ -1,4 +1,4 @@
-name: .NET Core Application CI
+name: .NET Core Application CI/CD
 
 on:
   push:
@@ -32,27 +32,36 @@ jobs:
       - name: Publish the application
         run: dotnet publish --configuration Release --output ./publish
 
+      - name: List published files (debugging)
+        run: ls -R ./publish
+
       - name: Upload publish artifacts
         uses: actions/upload-artifact@v3
         with:
           name: publish
           path: ./publish
 
-      - name: Copy Files to Target Path
-        run: |
-          cp -r ./publish/* C:\IIS-Task-main -Recurse -Force
+  deploy:
+    runs-on: windows-latest
+    needs: build  # Ensure the build job completes first
+
+    steps:
+      - name: Download publish artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: publish
+          path: ./publish
+
+      - name: List downloaded files (debugging)
+        run: ls -R ./publish
 
       - name: IIS Deploy
         uses: ChristopheLav/iis-deploy@v1.0.0
         with:
-          # IIS website name
           website-name: hello-app
-          # MS Deploy Service URL
-          msdeploy-service-url: https://57.154.178.209:8172/msdeploy.axd  # e.g., `https://your-server:8172/msdeploy.axd`
-          # Username for Basic authentication to the MS Deploy Service
-          msdeploy-username: win-admin
-          # Password for Basic authentication to the MS Deploy Service
-          msdeploy-password: PWf%vrvrQwsn@1234
-          # The path to the source directory that will be deployed
+          msdeploy-service-url: https://57.154.178.209:8172/msdeploy.axd
+          msdeploy-username: ${{ secrets.MSDEPLOY_USERNAME }}
+          msdeploy-password: ${{ secrets.MSDEPLOY_PASSWORD }}
           source-path: ./publish
-
+          additional-arguments: '-whatif'  # Simulate the deployment for debugging
+          verbosity: Detailed
