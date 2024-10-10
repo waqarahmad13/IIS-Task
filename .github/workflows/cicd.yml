@@ -55,5 +55,5 @@ jobs:
           server: 'ftp://57.154.178.209'  # Your FTP server address
           username: 'win-admin'             # Your FTP username
           password: 'PWf%vrvrQwsn@1234'     # Your FTP password
-          local-dir: './publish'            # Local directory to upload
+          local-dir: './publish/'            # Local directory to upload
           server-dir: 'C:/IIS-Task-main/'    # Remote directory on FTP server
