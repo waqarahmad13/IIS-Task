@@ -49,9 +49,11 @@ jobs:
           name: publish
           path: ./publish
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
-
-      - name: SCP files to IIS server
-        run: |
-          sshpass -p 'PWf%vrvrQwsn@1234' scp -o StrictHostKeyChecking=no -r ./publish/* win-admin@57.154.178.209:C:/IIS-Task-main
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: 'ftp://57.154.178.209'  # Your FTP server address
+          username: 'win-admin'             # Your FTP username
+          password: 'PWf%vrvrQwsn@1234'     # Your FTP password
+          local-dir: './publish'            # Local directory to upload
+          server-dir: 'C:/IIS-Task-main'    # Remote directory on FTP server
